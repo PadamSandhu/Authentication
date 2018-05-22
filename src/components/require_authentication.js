@@ -13,9 +13,14 @@ export default function (ComposedComponent) {
                 this.props.history.push('/');
             }
           }
+          // To Log User Out of the view !!
+         componentWillUpdate(nextProps) {
+            if(!nextProps.authenticated) {
+                this.props.history.push('/');
+            }
+         }
         
         render() {
-            console.log(this.context);
             return <ComposedComponent {...this.props}/>
         }
     }
